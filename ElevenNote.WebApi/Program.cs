@@ -21,7 +21,7 @@ builder.Services.AddDefaultIdentity<UserEntity>(options =>
     options.Password.RequireDigit = true;
     options.Password.RequireNonAlphanumeric = true; 
 })
-.AddRoles<IdentityRole<int>>() // ENable ROles, optional
+.AddRoles<IdentityRole<int>>() // Enable Roles, optional
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllers();
