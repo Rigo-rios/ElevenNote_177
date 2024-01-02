@@ -57,4 +57,23 @@ public class UserService : IUserService
         UserEntity? existingUser = await _userManager.FindByEmailAsync(userName);
         return existingUser is null;
     }
+
+    public async Task<UserDetail?> GetUserIdAsync(int userId)
+    {
+        var entity = await _context.Users.FindAsync(userId);
+        if(entity is null)
+        return null;
+
+        UserDetail detail = new()
+        {
+            Id = entity.Id,
+            Email = entity.Email!,
+            UserName = entity.UserName!,
+            FirstName = entity.FirstName!,
+            LastName = entity.LastName,
+            DateCreated = entity.DateCreated
+        };
+        
+        return detail;
+    }
 }

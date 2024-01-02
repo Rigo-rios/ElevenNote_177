@@ -15,11 +15,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddDefaultIdentity<UserEntity>(options =>
 {
     //Pass word Configuration optional
-    options.Password.RequiredLength = 5;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireLowercase = true;
-    options.Password.RequireDigit = true;
-    options.Password.RequireNonAlphanumeric = true; 
+    options.Password.RequiredLength = 4;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireNonAlphanumeric = false; 
 })
 .AddRoles<IdentityRole<int>>() // Enable Roles, optional
 .AddEntityFrameworkStores<ApplicationDbContext>();
