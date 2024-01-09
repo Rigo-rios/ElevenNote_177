@@ -32,7 +32,7 @@ namespace ElevenNote.WebApi.Controllers
             return BadRequest(new TextResponse("User could not be registered"));
         }
 
-        [Authorize]
+        [Authorize, HttpGet("{userId:int}")]
         [HttpGet("{userId:int}")]
         public async Task<IActionResult> GetById([FromRoute] int userId)
         {
